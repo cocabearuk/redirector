@@ -4,7 +4,12 @@ var fs = require('fs');
 var path = require('path');
 var readline = require('readline');
 var baseRedirectDomain = process.env.BASE_REDIRECT_DOMAIN;
+var env = require('node-env-file');
+var fs = require('fs');
 
+if (fs.exists(__dirname + '\\.env')){
+    env(__dirname + '\\.env');
+}
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
